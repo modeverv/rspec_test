@@ -1,13 +1,14 @@
 # -*- coding:utf-8 -*-
 
 class MessageFilter
-  attr_reader :words
+  attr_reader :ng_words
+
   def initialize(*words)
-    @words = *words
+    @ng_words = *words
   end
   
   def detect?(str)
-    @words.any?{ |word| str.include? word }
+    @ng_words.any?{ |word| str.include? word }
   end
   
 end
