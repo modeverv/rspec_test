@@ -1,13 +1,18 @@
 # -*- coding:utf-8 -*-
 
 class MessageFilter
-  attr_reader :word
-  def initialize(word)
-    @word = word
+  attr_reader :words
+  def initialize(*words)
+    @words = *words
   end
   
   def detect?(str)
-    str.include? @word
+    flg = false
+    @words.each do |word|
+      flg = str.include? word
+      break if flg == true
+    end
+    flg
   end
   
 end

@@ -15,3 +15,12 @@ describe "MessageFilterのテスト","NG=fooでテスト" do
   
 end
 
+describe "NG=foo,bar" do
+  subject { MessageFilter.new('foo','bar') }
+  
+  it { should be_detect('hello from bar') }
+  it { should be_detect('hello from foo') }
+  it { should_not be_detect('hello from') }
+  
+end
+
