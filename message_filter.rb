@@ -7,12 +7,7 @@ class MessageFilter
   end
   
   def detect?(str)
-    flg = false
-    @words.each do |word|
-      flg = str.include? word
-      break if flg == true
-    end
-    flg
+    @words.any?{ |word| str.include? word }
   end
   
 end
